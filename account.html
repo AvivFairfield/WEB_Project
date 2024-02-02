@@ -12,10 +12,47 @@
     
 </head>
 
+<style>
+    .popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    border: 10px solid palevioletred;
+    width: 500px; /* Adjust width as needed */
+    padding: 20px;
+    margin: 20% auto; /* Center the popup vertically and horizontally */
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+    </style>
+
 <body class="bg-gray-100">
     <div class="max-w-4xl mx-auto py-8">
         <h1  class="mb-5"><label class="text-2xl font-bold">Account Settings</label>
-        <button onclick="window.location.href = 'index.html';" class="bg-gray-200 text-gray-600 px-3 py-1 rounded-md">Home</button>
+        <button onclick="window.location.href = 'index.html';" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md">Home</button>
     </h1>
         <div class="bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-lg font-semibold mb-4">General Information</h2>
@@ -30,10 +67,40 @@
                       
                       <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Aviv Cohen</dd>
                     </div>
-                    <div class="px-4 py-6 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-0">
-                      <dt class="text-sm font-medium leading-6 text-gray-900">Email address</dt>
+                    <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
+                      <dt class="text-sm font-medium leading-6 text-gray-900">Account Details</dt>
                       <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">aviv.cohen@e.braude.ac.il</dd>
+                      <button type="button" id="changePW" class="bg-pink-500 text-white hover:bg-black transition duration-300  px-1 py-1 rounded-sm w-28">Edit Password</button>   
+                     </div>
+    
+                     <div id="popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <div><form>
+                                <div style="padding: 1%;"><label for="currentPassword">Current Password:</label>
+                                    <input type="password" id="currentPassword" name="currentPassword" style="border: 1px solid black; padding: 8px; border-radius: 4px; "></div>
+                                <div  style="padding: 1%;"><label for="newPassword">New Password:</label>
+                                    <input type="password" id="newPassword" name="newPassword"style="border: 1px solid black; padding: 8px; border-radius: 4px; " ></div>
+                                <div  style="padding: 1%;"><label for="confirmNewPassword">Confirm New Password:</label>
+                                    <input type="password"  id="confirmNewPassword" name="confirmNewPassword" style="border: 1px solid black; padding: 8px; border-radius: 4px; "></div>
+                                
+                                    <button type="button" id="changePW" class="bg-pink-500 text-white hover:bg-black transition duration-300  px-1 py-1 rounded-sm w-28 align-super">Submit</button> 
+                                   </form></div>
+                            
+                        </div>
                     </div>
+                    <script>
+                        // Open the popup when the button is clicked
+                        document.getElementById("changePW").addEventListener("click", function() {
+                            document.getElementById("popup").style.display = "block";
+                        });
+                        
+                        // Close the popup when the close button is clicked
+                        function closePopup() {
+                            document.getElementById("popup").style.display = "none";
+                        }
+                        </script>
+
                     <div class="px-4 py-6 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Rewards</dt>
                         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd>
@@ -53,15 +120,15 @@
                         <div class="flex items-center ml-5">
                             <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" value="80" class="mt-1 p-2 border border-gray-300 rounded-md w-24 text-center">
                         </div>
-                        <button type="button" id="saveHeight" class="bg-gray-200 text-gray-600 px-3 py-1 rounded-md ml-4">Save</button> 
+                        <button type="button" id="saveHeight" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md ml-4">Save</button> 
                     </div>
                     
                     <div class="px-4 py-6 sm:grid sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Goal</dt>
                         <div class="flex items-center"> 
-                            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">__</dd>
+                            <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" value="80" class="mt-1 p-2 border border-gray-300 rounded-md w-24 text-center">
                             <dd class="text-sm leading-6 text-gray-700 ml-1">kg</dd> 
-                            <button type="button" id="saveGoal" class="bg-gray-200 text-gray-600 px-3 py-1 rounded-md ml-4">Save</button>
+                            <button type="button" id="saveGoal" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md ml-4">Save</button>
                         </div>
                     </div>
                     
