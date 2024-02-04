@@ -13,6 +13,14 @@
 </head>
 
 <style>
+
+.flex {
+            display: flex;
+            align-items: center; /* Center items vertically */
+        }
+        .justify-between {
+            justify-content: space-between; /* Distribute items evenly along the main axis */
+        }
     .popup {
     display: none;
     position: fixed;
@@ -51,9 +59,11 @@
 
 <body class="bg-gray-100">
     <div class="max-w-4xl mx-auto py-8">
-        <h1  class="mb-5"><label class="text-2xl font-bold">Account Settings</label>
-        <button onclick="window.location.href = 'index.html';" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md">Home</button>
-    </h1>
+        <h1 class="mb-5 flex items-center justify-between">
+            <img src="D:\Chrome\SS_LOGO-removebg-preview.png" alt="Logo" class="h-8" style="width: 50px; height: auto;"> <!-- Adjust class as needed for logo size -->
+            <label class="text-2xl font-bold">Account Settings</label>
+            <button onclick="window.location.href = 'index.html';" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md">Home</button>
+        </h1>
         <div class="bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-lg font-semibold mb-4">General Information</h2>
             <div>
@@ -120,14 +130,55 @@
                         <div class="flex items-center ml-5">
                             <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" value="80" class="mt-1 p-2 border border-gray-300 rounded-md w-24 text-center">
                         </div>
+                        
                         <button type="button" id="saveHeight" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md ml-4">Save</button> 
                     </div>
                     
+                    <div class="px-4 py-6 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-0">
+                        <dt class="text-sm font-medium leading-6 text-gray-900">Progress Tracker</dt>
+                        <div class="shadow-lg rounded-lg overflow-hidden">
+                            <div class=" px-5 bg-pink-500"></div>
+                            <canvas class="p-10" id="chartLine"></canvas>
+                          </div>
+                          
+                          <!-- Required chart.js -->
+                          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                          
+                          <!-- Chart line -->
+                          <script>
+                            const labels = ["January", "February", "March", "April", "May", "June"];
+                            const data = {
+                              labels: labels,
+                              datasets: [
+                                {
+                                  label: "My First dataset",
+                                  backgroundColor: "hsl(252, 82.9%, 67.8%)",
+                                  borderColor: "hsl(252, 82.9%, 67.8%)",
+                                  data: [0, 10, 5, 2, 20, 30, 45],
+                                },
+                              ],
+                            };
+                          
+                            const configLineChart = {
+                              type: "line",
+                              data,
+                              options: {},
+                            };
+                          
+                            var chartLine = new Chart(
+                              document.getElementById("chartLine"),
+                              configLineChart
+                            );
+                          </script>
+
+                      </div>
+
                     <div class="px-4 py-6 sm:grid sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Goal</dt>
                         <div class="flex items-center"> 
                             <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" value="80" class="mt-1 p-2 border border-gray-300 rounded-md w-24 text-center">
                             <dd class="text-sm leading-6 text-gray-700 ml-1">kg</dd> 
+                            
                             <button type="button" id="saveGoal" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md ml-4">Save</button>
                         </div>
                     </div>
@@ -142,6 +193,7 @@
            
         </div>
     </div>
+ 
 </body>
 
 </html>
