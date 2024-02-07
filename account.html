@@ -55,9 +55,19 @@
     color: black;
     text-decoration: none;
 }
+
+
+body {
+        background-image: url("bgIimage.png"); /* Specify the path to your background image */
+        background-size: cover; /* Cover the entire viewport */
+        background-position: center; /* Center the background image */
+    }
+
     </style>
 
 <body class="bg-gray-100">
+
+
     <div class="max-w-4xl mx-auto py-8">
         <h1 class="mb-5 flex items-center justify-between">
             <img src="D:\Chrome\SS_LOGO-removebg-preview.png" alt="Logo" class="h-8" style="width: 50px; height: auto;"> <!-- Adjust class as needed for logo size -->
@@ -151,13 +161,30 @@
                               labels: labels,
                               datasets: [
                                 {
-                                  label: "My First dataset",
+                                  label: "Weight",
                                   backgroundColor: "hsl(252, 82.9%, 67.8%)",
                                   borderColor: "hsl(252, 82.9%, 67.8%)",
-                                  data: [0, 10, 5, 2, 20, 30, 45],
+                                  data: [85, 82, 80, 78, 75, 74, 72],
                                 },
-                              ],
-                            };
+                                {
+                                    label:"",
+                                  backgroundColor: "white",
+                                  borderColor: "white",
+                                  data: [60],
+                                },
+                                {
+                    label: "Goal",
+                    backgroundColor: "orange",
+                     borderColor: "orange",
+                    data: Array(labels.length).fill(75), // Change the constant value here
+                    fill: false, // Set fill to false to draw only the line without filling the area underneath
+                    
+            }
+                    
+                
+                                
+                        ],
+                         };
                           
                             const configLineChart = {
                               type: "line",
@@ -175,10 +202,12 @@
 
                     <div class="px-4 py-6 sm:grid sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Goal</dt>
-                        <div class="flex items-center"> 
+                        <div class="flex items-start"> 
                             <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" value="80" class="mt-1 p-2 border border-gray-300 rounded-md w-24 text-center">
-                            <dd class="text-sm leading-6 text-gray-700 ml-1">kg</dd> 
-                            
+                            <dd class="text-sm leading-6 text-gray-700 ml-1 mr-3">kg</dd> 
+                            <div class="relative w-full mb-3">
+                                <input type="date" id="birthdate" name="birthdate" class="mt-1 p-2  border border-gray-300 rounded-md w-36 text-center"  style="transition: all 0.15s ease 0s;">
+                            </div>
                             <button type="button" id="saveGoal" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md ml-4">Save</button>
                         </div>
                     </div>
