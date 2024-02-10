@@ -1,73 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Settings</title>
-    <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  
-
-    
+    <link rel="stylesheet" href="account.css">
 </head>
 
-<style>
-
-.flex {
-            display: flex;
-            align-items: center; /* Center items vertically */
-        }
-        .justify-between {
-            justify-content: space-between; /* Distribute items evenly along the main axis */
-        }
-    .popup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.popup-content {
-    background-color: #fefefe;
-    border: 10px solid palevioletred;
-    width: 500px; /* Adjust width as needed */
-    padding: 20px;
-    margin: 20% auto; /* Center the popup vertically and horizontally */
-    border-radius: 5px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-}
-
-
-body {
-        background-image: url("bgIimage.png"); /* Specify the path to your background image */
-        background-size: cover; /* Cover the entire viewport */
-        background-position: center; /* Center the background image */
-    }
-
-    </style>
-
 <body class="bg-black">
-
-
     <div class="max-w-4xl mx-auto py-8">
         <h1 class="mb-5 flex items-center justify-between">
             <img src="logo.png" alt="Logo" class="h-8" style="width: 50px; height: auto;"> <!-- Adjust class as needed for logo size -->
@@ -111,18 +54,6 @@ body {
                         </div>
                     </div>
 
-                    
-                    <script>
-                        // Open the popup when the button is clicked
-                        document.getElementById("changePW").addEventListener("click", function() {
-                            document.getElementById("popup").style.display = "block";
-                        });
-                        
-                        // Close the popup when the close button is clicked
-                        function closePopup() {
-                            document.getElementById("popup").style.display = "none";
-                        }
-                        </script>
 
                     <div class="px-4 py-6 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-0">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Rewards</dt>
@@ -155,52 +86,10 @@ body {
                           </div>
                           
                           <!-- Required chart.js -->
-                          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                           
                           <!-- Chart line -->
-                          <script>
-                            const labels = ["January", "February", "March", "April", "May", "June"];
-                            const data = {
-                              labels: labels,
-                              datasets: [
-                                {
-                                  label: "Weight",
-                                  backgroundColor: "hsl(252, 82.9%, 67.8%)",
-                                  borderColor: "hsl(252, 82.9%, 67.8%)",
-                                  data: [85, 82, 80, 78, 75, 74, 72],
-                                },
-                                {
-                                    label:"",
-                                  backgroundColor: "white",
-                                  borderColor: "white",
-                                  data: [60],
-                                },
-                                {
-                    label: "Goal",
-                    backgroundColor: "orange",
-                     borderColor: "orange",
-                    data: Array(labels.length).fill(75), // Change the constant value here
-                    fill: false, // Set fill to false to draw only the line without filling the area underneath
-                    
-            }
-                    
-                
-                                
-                        ],
-                         };
-                          
-                            const configLineChart = {
-                              type: "line",
-                              data,
-                              options: {},
-                            };
-                          
-                            var chartLine = new Chart(
-                              document.getElementById("chartLine"),
-                              configLineChart
-                            );
-                          </script>
-
+        
                       </div>
 
                     <div class="px-4 py-6 sm:grid sm:gap-4 sm:px-0">
@@ -224,6 +113,8 @@ body {
               
            
         </div>
+        <script src="account.js"></script>
+
     </div>
  
 </body>
