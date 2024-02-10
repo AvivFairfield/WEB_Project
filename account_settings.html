@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Settings</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="account_settings.css">
 </head>
 
 <body class="bg-black">
@@ -15,7 +15,7 @@
         <h1 class="mb-5 flex items-center justify-between">
             <img src="white_logo.png" alt="Logo" class="h-8" style="width: 50px; height: auto;"> <!-- Adjust class as needed for logo size -->
             <label class="text-2xl font-bold" style="color:white;">Account Settings</label>
-            <button onclick="window.location.href = 'mainMenu.html';" class="bg-pink-500 text-white hover:bg-blue-400 transition duration-300 px-3 py-1 rounded-md">Home</button>
+            <button onclick="window.location.href = 'mainMenu.html';" class="text-white hover:bg-pink-500 transition duration-300 px-3 py-1 rounded-md" style="border: 1px solid white;">Home</button>
         </h1>
         <div class="bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-lg font-semibold mb-4">General Information</h2>
@@ -33,7 +33,7 @@
                     <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
                       <dt class="text-sm font-medium leading-6 text-gray-900">Account Details</dt>
                       <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">aviv.cohen@e.braude.ac.il</dd>
-                      <button type="button" id="changePW" class="bg-pink-500 text-white hover:bg-black transition duration-300  px-1 py-1 rounded-sm w-28">Edit Password</button>   
+                      <button type="button" id="changePW" class="bg-black text-white hover:bg-pink-500  transition duration-300  px-1 py-1 rounded-sm w-28" style="border: white;">Edit Password</button>   
                      </div>
     
                      
@@ -48,7 +48,7 @@
                                 <div  style="padding: 1%;"><label for="confirmNewPassword">Confirm New Password:</label>
                                     <input type="password"  id="confirmNewPassword" name="confirmNewPassword" style="border: 1px solid black; padding: 8px; border-radius: 4px; "></div>
                                 
-                                    <button type="button" id="changePW" class="bg-pink-500 text-white hover:bg-black transition duration-300  px-1 py-1 rounded-sm w-28 align-super">Submit</button> 
+                                    <button type="button" id="changePW" class="bg-black text-white hover:bg-pink-500 transition duration-300  px-1 py-1 rounded-sm w-28 align-super">Submit</button> 
                                    </form></div>
                             
                         </div>
@@ -75,7 +75,7 @@
                             <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" value="80" class="mt-1 p-2 border border-gray-300 rounded-md w-24 text-center">
                         </div>
                         
-                        <button type="button" id="saveHeight" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md ml-4">Save</button> 
+                        <button type="button" id="saveHeight" class="bg-black text-white hover:bg-pink-500 transition duration-300 px-3 py-1 rounded-md ml-4">Save</button> 
                     </div>
                     
                     <div class="px-4 py-6 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-0">
@@ -100,7 +100,7 @@
                             <div class="relative w-full mb-3">
                                 <input type="date" id="goalDate" name="goalDate" class="mt-1 p-2  border border-gray-300 rounded-md w-36 text-center"  style="transition: all 0.15s ease 0s;">
                             </div>
-                            <button type="button" id="saveGoal" class="bg-pink-500 text-white hover:bg-black transition duration-300 px-3 py-1 rounded-md ml-4">Save</button>
+                            <button type="button" id="saveGoal" class="bg-black text-white hover:bg-pink-500 transition duration-300 px-3 py-1 rounded-md ml-4">Save</button>
                         </div>
                     </div>
                     
@@ -113,7 +113,7 @@
               
            
         </div>
-        <script src="account.js"></script>
+        <script src="account_settings.js"></script>
 
     </div>
  
