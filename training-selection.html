@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweatSquad - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        html {
+            height: 100%; /*Ensure the html element takes up full height*/
+        } 
+
+        body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        font-family: sans-serif;
+        background-color: #000;
+        color: #fff;
+        background-image: url('most_colors_modified_image.png');
+        background-size: cover;
+        background-position: center 20%;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        height: 30%; /*Take up full height of the viewport*/
+        margin: 0;
+        align-items: center;
+        justify-content:flex-start; ; /*Align items to the start*/
+        padding-top: 50px;/*move content up*/
+        padding-bottom: 60px;
+ 
+
+        }
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+            display: none; /*Hide the header */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            width: 100%;
+            text-align: center; 
+            
+        }
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+       
+        .challenge-button, .save-button {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            padding: 8px 15px;
+            border: 1px solid #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin: 20px auto;
+            display: block;
+        }
+        .challenge-button:hover, .save-button:hover {
+            background-color: #f9478f;
+        }
+        .form-control {
+            width: 26%;
+            height: 35px;
+            padding: 8px;
+            border: 2px solid #fff;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            border-radius: 4px;
+            margin: 6px auto;
+            display: block; /*Display the selectors as block elements */
+           
+        }
+        label {
+            color: #fff;
+            text-align: center;
+            margin: 10px auto;
+            display: block;
+            font-size: 14px; 
+        }
+        h1 {
+            font-size: 20px;
+            margin-bottom: 15px; 
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: black; 
+        }
+        .back-button {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        background-color: #0d0d0d;
+        color: #ffffff;
+        padding: 12px 20px; /* Increased padding for a larger button */
+        border: 1px solid #fff;
+        cursor: pointer;
+        border-radius: 8px;/
+        font-size: 16px; 
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+}
+
+    .back-button:hover {
+       background-color: #f9478f; 
+}
+
+    </style>
+</head>
+<body style="background-position: center 20%; background-size: cover;">
+
+    <header class="p-6 shadow-md">
+        <div class="flex items-center justify-between">
+            <a href="#" class="flex items-center">
+                <span class="sr-only">SweatSquad</span>
+            </a>
+        </div>
+    </header>
+    <main class="container">
+        <img src="white_logo.png" class="logo" alt="SweatSquad Logo">
+        <h1 class="text-2xl font-bold text-white-900">Training Selection</h1>
+        
+        <select class="form-control" id="trainingType">
+            <option>Choose a training</option>
+            <option value="running">Running</option>
+            <option value="cardio_training">Cardio Training</option>
+            <option value="hiit">High-Intensity Interval Training (HIIT)</option>
+            <option value="core_strengthening">Core Strengthening</option>
+            <option value="crossfit">CrossFit</option>
+            <option value="yoga">Yoga</option>
+            <option value="flexibility_stretching">Flexibility and Stretching</option>
+            <option value="spinning_cycling">Spinning or Indoor Cycling</option>
+            <option value="Other">Other</option>
+        </select>
+        
+        <select class="form-control" id="location">
+            <option>Gym or home?</option>
+            <option value="Gym">Gym</option>
+            <option value="Home">Home</option>
+        </select>
+        
+        <input type="number" placeholder="Minutes per workout" class="form-control">
+
+        <label for="workoutDate" class="form-label">Select a date for your workout:</label>
+        <input type="date" id="workoutDate" name="workoutDate" class="form-control">
+
+        <label for="appt" class="form-label">Select a time for your workout:</label>
+        <input type="time" id="appt" name="appt" class="form-control">
+        
+        <button class="save-button" onclick="saveWorkoutDetails()">Save</button>
+        <button class="challenge-button" onclick="inviteFriend()">Invite a Friend to your challenge</button>
+
+          <!-- Footer with black background and adjusted to full width -->
+         
+         
+<footer class="bg-black pb-6">
+    <div class="mx-auto px-4">
+        <hr class="mb-6 border-b-1 border-gray-700" />
+        <div class="flex flex-wrap items-center justify-between">
+            <div class="w-full md:w-4/12 px-4">
+                <div class="text-sm text-white font-semibold py-1">
+                    Copyright © 2024
+                </div>
+            </div>
+            <div class="w-full md:w-8/12 px-4">
+                <ul class="flex flex-wrap list-none justify-end">
+                    <li>
+                        <a href="#about" class="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="#recipes" class="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3">Recipes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <script>
+       
+    </script>
+</body>
+</html>
+
+        <script>
+            document.querySelector('.back-button').addEventListener('click', function() {
+    window.history.back(); // Go back to the previous page
+});
+
+              
+
+
+            function inviteFriend() {
+                const trainingType = document.getElementById('trainingType').value;
+                const location = document.getElementById('location').value;
+                const workoutDate = document.getElementById('workoutDate').value;
+                const time = document.getElementById('appt').value;
+
+     //Check if the trainingType or location is not selected
+     if (trainingType === "Choose a training" || location === "Gym or home?" || !workoutDate || !time) {
+        alert('Please fill in all fields before inviting a friend.');
+        return; //Stop execution if any field is empty or default
+    }
+
+
+            
+                //create the message
+                const message = `Hey! I'm doing a ${trainingType} workout at the ${location} on ${workoutDate} around ${time}. Wanna join me to my challenge? `;
+            
+                //Encode the message for a URL
+                const encodedMessage = encodeURIComponent(message);
+            
+                //WhatsApp link to share the message
+                const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+                
+                //Open WhatsApp sharing in a new tab
+                window.open(whatsappUrl, '_blank');
+            }
+
+            function saveWorkoutDetails() {
+                //Get values from input fields
+             const trainingType = document.getElementById('trainingType').value;
+             const location = document.getElementById('location').value;
+             const workoutMinutes = document.querySelector('input[type="number"]').value; //Assuming there's only one number input for minutes
+             const workoutDate = document.getElementById('workoutDate').value;
+             const time = document.getElementById('appt').value;
+
+             //check if the trainingType or location is not selected
+    if (trainingType === "Choose a training" || location === "Gym or home?" || !workoutMinutes || !workoutDate || !time) {
+        alert('Please fill in all fields.');
+        return; //stop execution if any field is empty or default
+    }
+
+    //Add code to actually save the details
+    alert('Workout details saved successfully!');
+}
+        </script>
+    </main>
+    <button class="back-button">Back</button>
+</body>
+</html>
