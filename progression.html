@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Settings</title>
+    <title>Progression</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="account_settings.css">
 </head>
@@ -14,11 +14,11 @@
     <div class="max-w-4xl mx-auto py-8">
         <h1 class="mb-5 flex items-center justify-between">
             <img src="white_logo.png" alt="Logo" class="h-8" style="width: 50px; height: auto;"> <!-- Adjust class as needed for logo size -->
-            <label class="text-2xl font-bold" style="color:white;">Account Settings</label>
+            <label class="text-2xl font-bold" style="color:white;">Your Progression</label>
             <button onclick="window.location.href = 'mainMenu.html';" class="text-white hover:bg-pink-500 transition duration-300 px-3 py-1 rounded-md" style="border: 1px solid white;">Home</button>
         </h1>
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-lg font-semibold mb-4">General Information</h2>
+            <h2 class="text-lg font-semibold mb-4">Progression</h2>
             <div>
                 <div class="px-4 sm:px-0">
                   <h3 class="text-base font-semibold leading-7 text-gray-900"></h3>
@@ -26,15 +26,7 @@
                 <div class="mt-6 border-t border-gray-100">
                   <dl class="divide-y divide-gray-100">
                     <div class="px-4 py-6 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-0">
-                      <dt class="text-sm font-medium leading-6 text-gray-900">Full name</dt>
-                      
-                      <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Aviv Cohen</dd>
-                    </div>
-                    <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
-                      <dt class="text-sm font-medium leading-6 text-gray-900">Account Details</dt>
-                      <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">aviv.cohen@e.braude.ac.il</dd>
-                      <button type="button" id="changePW" class="bg-black text-white hover:bg-pink-500  transition duration-300  px-1 py-1 rounded-sm w-28" style="border: white;">Edit Password</button>   
-                     </div>
+                     
     
                      
                      <div id="popup" class="popup">
@@ -55,33 +47,32 @@
                     </div>
 
 
-                    
-                    <div class="mb-4 flex items-center">
-                        <label for="height" class="block text-sm font-medium text-gray-700">Height (cm)</label>
-                        <div class="flex items-center ml-4"> 
-                            <input type="number" id="height" name="height" min="100" max="300" value="170" class="mt-1 p-2 border border-gray-300 rounded-md w-24 text-center">
+                    <div class="px-4 py-6 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-0">
+                        <dt class="text-sm font-medium leading-6 text-gray-900">Rewards</dt>
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd>
+                        <div class="inline-block">
+                            <span class="inline-flex items-center rounded-md bg-white px-2 py-1 text-xs font-medium text-yellow-400 ring-1 ring-inset ring-pink-700/10" title="Highest score on running">Best Runner 2024</span>
+                            <span class="inline-flex items-center rounded-md bg-pink-50 px-2 py-1 text-xs font-medium text-pink-700 ring-1 ring-inset ring-pink-700/10" title="Win over 100 challenges">You dare challenge me?</span>
+                            <span class="inline-flex items-center rounded-md bg-emerald-700 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-pink-700/10" title="Win a challenge by less than a second">Not even close!</span>
                         </div>
-                        <label for="weight" class="block text-sm font-medium text-gray-700 ml-4">Weight (kg)</label>
-                        <div class="flex items-center ml-5">
-                            <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" value="80" class="mt-1 p-2 border border-gray-300 rounded-md w-24 text-center">
-                        </div>
-                        
-                        <button type="button" id="saveHeight" class="bg-black text-white hover:bg-pink-500 transition duration-300 px-3 py-1 rounded-md ml-4">Save</button> 
                     </div>
+                    
                     
                     <div class="px-4 py-6 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-0">
-                       
-                    <div class="px-4 py-6 sm:grid sm:gap-4 sm:px-0">
-                        <dt class="text-sm font-medium leading-6 text-gray-900">Goal</dt>
-                        <div class="flex items-start"> 
-                            <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" value="80" class="mt-1 p-2 border border-gray-300 rounded-md w-24 text-center">
-                            <dd class="text-sm leading-6 text-gray-700 ml-1 mr-3">kg</dd> 
-                            <div class="relative w-full mb-3">
-                                <input type="date" id="goalDate" name="goalDate" class="mt-1 p-2  border border-gray-300 rounded-md w-36 text-center"  style="transition: all 0.15s ease 0s;">
-                            </div>
-                            <button type="button" id="saveGoal" class="bg-black text-white hover:bg-pink-500 transition duration-300 px-3 py-1 rounded-md ml-4">Save</button>
-                        </div>
-                    </div>
+                        <dt class="text-sm font-medium leading-6 text-gray-900">Progress Tracker</dt>
+                        <div class="shadow-lg rounded-lg overflow-hidden">
+                            <div class=" px-5 bg-pink-500"></div>
+                            <canvas class="p-10" id="chartLine"></canvas>
+                          </div>
+                          
+                          <!-- Required chart.js -->
+                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                          
+                          <!-- Chart line -->
+        
+                      </div>
+
+                    
                     
                 </div>
                 
