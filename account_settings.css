@@ -1,3 +1,4 @@
+
 .flex {
     display: flex;
     align-items: center;
@@ -6,6 +7,7 @@
 .justify-between {
     justify-content: space-between;
 }
+
 
 .popup {
     display: none;
@@ -22,11 +24,23 @@
 .popup-content {
     background-color: #fefefe;
     border: 10px solid palevioletred;
-    width: 500px;
+    width: 80%; 
+    max-width: 500px; 
     padding: 20px;
-    margin: 20% auto;
+    margin: 5% auto; 
     border-radius: 5px;
+    box-sizing: border-box; 
 }
+
+
+@media (max-width: 640px) {
+    .popup-content {
+        width: 90%; 
+        margin: 10vh auto;
+        padding: 5%; 
+    }
+}
+
 
 .close {
     color: #aaa;
@@ -42,11 +56,26 @@
     text-decoration: none;
 }
 
-body {
-    background-image: url("bgIimage.png");
-    background-size: cover;
-    background-position: center;
 
-    font-family: sans-serif;
+.custom-button {
+    width: auto; 
+    min-width: 60px; 
+    padding: 10px 20px; 
+    margin: 0.5rem 0; 
+    box-sizing: border-box; 
+}
 
+@media (max-width: 640px) {
+    .custom-button, .custom-input {
+        width: 100%; 
+        margin: 10px 0; 
+    }
+}
+
+
+
+.custom-bg {
+    background-image: url('most_colors_modified_image.png');
+    background-size: cover; 
+    background-position: center; 
 }
