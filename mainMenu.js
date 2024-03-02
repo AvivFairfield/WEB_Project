@@ -40,6 +40,40 @@ const deleteWorkout = (workoutId) => {
         .then((data) => {
             console.log("Success:", data)
             if (data?.status == "success") {
+                alert(data?.message)
+            } else {
+                alert(data?.message) // should return from api the message that says saved succesffuly
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error)
+        })
+
+    const card = document.getElementById(workoutId)
+    if (card) {
+        card.remove()
+    }
+}
+
+const archiveWorkout = (workoutId) => {
+    // Find the card by ID and remove it
+
+    // delete workout from user array via post
+
+    fetch("http://localhost:5000/archiveuserworkouts", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            id: workoutId,
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("Success:", data)
+            if (data?.status == "success") {
+                alert(data?.message)
             } else {
                 alert(data?.message) // should return from api the message that says saved succesffuly
             }
@@ -106,7 +140,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <h5 class="text-lg font-bold">${item.current_workout}</h5>
                                     <p class="text-sm">${item.workout_location}</p>
                                     <p class="text-sm">${formatDateTime(new Date(item.starting_datetime))}</p>
-                                    <button onclick="deleteWorkout('card-${item.id}')" >DELETEME</button>
+                                    <button onclick="deleteWorkout('card-${item.id}')" >DELETE</button>
+                                    <button onclick="archiveWorkout('card-${item.id}')" >DONE</button>
                                 </div>
                             </div>
                         </div>`,

@@ -9,23 +9,22 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css" />
         <title>Sign Up</title>
         <style>
-            /* General styles */
             body,
             html {
                 font-family: sans-serif;
                 margin: 0;
                 padding: 0;
-                height: 100%; /* Set height to 100% to fill the viewport */
+                height: 100%;
             }
 
-            /* Logo styles */
             .logo-container {
+                top: -7%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 20%; /* Adjusted height to fill 20% of the viewport */
-                position: relative; /* Added position relative */
-                z-index: 1; /* Ensure logo appears above background */
+                height: 30%;
+                position: relative;
+                z-index: 1;
             }
 
             .logo-img {
@@ -35,33 +34,43 @@
                 height: auto;
             }
 
-            /* Sign-in container styles */
             .sign-in-container {
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 width: 90%;
-                max-width: 400px;
-                padding: 10px;
+                max-width: 800px;
+                padding: 20px; /* Reduced padding */
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 background-color: rgba(255, 255, 255, 0.9);
-                height: 70%; /* Adjusted height to fill 60% of the viewport */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
-            /* Responsive adjustments */
+            .flex-container {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .column {
+                flex: 1;
+                padding: 0 15px;
+            }
+
             @media (max-width: 768px) {
-                .logo-container {
-                    height: 10%; /* Adjusted height for smaller screens */
+                .flex-container {
+                    flex-direction: column;
                 }
-                .logo-img {
-                    max-height: 40px; /* Adjusted max-height for smaller screens */
-                    max-width: 40px; /* Adjusted max-width for smaller screens */
+                .column {
+                    width: 100%;
+                    padding: 0;
                 }
                 .sign-in-container {
-                    width: 90%;
-                    height: 80%; /* Adjusted height for smaller screens */
+                    max-width: 90%;
                 }
             }
         </style>
@@ -74,115 +83,109 @@
                     style="background-image: url(https://i.ibb.co/Rc3rZQF/most-colors-modified-image.png); background-size: 100%; background-repeat: no-repeat"
                 ></div>
 
-                <!-- Logo Container -->
                 <div class="logo-container">
                     <img class="logo-img" src="https://i.ibb.co/4jnQ609/white-logo.png" />
                 </div>
-                <!-- /Logo Container -->
 
-                <div class="container mx-auto px-4">
+                <div class="container mx-auto px-4 h-full">
                     <div class="flex content-center items-center justify-center h-full">
-                        <div class="w-full lg:w-8/12 px-4 mb-10">
-                            <div class="relative flex flex-col min-w-0 break-words w-full mb-1 shadow-lg rounded-lg bg-gray-300 border-0 sign-in-container">
-                                <div class="rounded-t mb-3 px-6 py-6">
-                                    <div class="text-center mb-4">
-                                        <h6 class="text-gray-1000 text-sm font-bold">Sign Up</h6>
+                        <div class="w-full lg:w-8/12 px-4">
+                            <div class="relative min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300 border-0 sign-in-container">
+                                <div class="rounded-t mb-0 px-6 py-6">
+                                    <div class="text-center mb-3">
+                                        <h6 class="text-gray-600 text-sm font-bold">Sign Up</h6>
                                     </div>
                                     <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
                                         <form>
-                                            <div class="relative mb-3">
-                                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-email">Email</label>
-                                                <input
-                                                    type="email"
-                                                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                                    placeholder="Email"
-                                                    style="transition: all 0.15s ease 0s"
-                                                />
-                                            </div>
-                                            <div class="relative mb-3">
-                                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">Password</label>
-                                                <input
-                                                    type="password"
-                                                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                                    placeholder="Password"
-                                                    style="transition: all 0.15s ease 0s"
-                                                />
-                                            </div>
-                                            <div class="relative mb-3">
-                                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="birthdate">Birthdate</label>
-                                                <input
-                                                    type="date"
-                                                    id="birthdate"
-                                                    name="birthdate"
-                                                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                                    placeholder="Birthdate"
-                                                    style="transition: all 0.15s ease 0s"
-                                                />
-                                            </div>
-                                            <div class="relative mb-3">
-                                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="weight">Weight</label>
-                                                <input
-                                                    type="number"
-                                                    id="weight"
-                                                    class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                                    placeholder="Weight"
-                                                    style="transition: all 0.15s ease 0s"
-                                                    min="0"
-                                                />
-                                            </div>
-                                            <div class="relative mb-3">
-                                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="phoneNumber">Phone Number</label>
-                                                <div class="flex">
-                                                    <select
-                                                        id="countryCode"
-                                                        name="countryCode"
-                                                        class="appearance-none block w-1/4 bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                    >
-                                                        <option value="050">050</option>
-                                                        <option value="052">052</option>
-                                                        <option value="058">058</option>
-                                                        <option value="054">054</option>
-                                                        <!-- Add more country codes if needed -->
-                                                    </select>
-                                                    <input
-                                                        type="text"
-                                                        id="phoneNumber"
-                                                        name="phoneNumber"
-                                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-3/4 ml-2"
-                                                        placeholder="Enter the rest of the number"
-                                                        style="transition: all 0.15s ease 0s"
-                                                    />
+                                            <div class="flex-container">
+                                                <!-- Left Column -->
+                                                <div class="column">
+                                                    <div class="relative mb-3">
+                                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">Full Name</label>
+                                                        <input
+                                                            type="text"
+                                                            id="username"
+                                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                            placeholder="Full Name"
+                                                        />
+                                                    </div>
+                                                    <div class="relative mb-3">
+                                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">Password</label>
+                                                        <input
+                                                            type="password"
+                                                            id="userPassword"
+                                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                            placeholder="Password"
+                                                        />
+                                                    </div>
+                                                    <div class="relative mb-3">
+                                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="weight">Weight</label>
+                                                        <input
+                                                            type="number"
+                                                            id="weight"
+                                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                            placeholder="Weight"
+                                                            min="0"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <!-- Right Column -->
+                                                <div class="column">
+                                                    <div class="relative mb-3">
+                                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-email">Email</label>
+                                                        <input
+                                                            type="email"
+                                                            id="userEmail"
+                                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                            placeholder="Email"
+                                                        />
+                                                    </div>
+                                                    <div class="relative mb-3">
+                                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="birthdate">Birthdate</label>
+                                                        <input
+                                                            type="date"
+                                                            id="birthdate"
+                                                            name="birthdate"
+                                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                        />
+                                                    </div>
+                                                    <div class="relative mb-3">
+                                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="goal">Goal (Kg)</label>
+                                                        <input
+                                                            type="number"
+                                                            id="goal"
+                                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                            placeholder="Goal"
+                                                            min="0"
+                                                        />
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <!-- Gender Selection -->
                                             <div class="relative mb-3 text-center">
                                                 <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="gender">Gender</label>
                                                 <div class="flex justify-center">
                                                     <label class="inline-flex items-center mr-4">
-                                                        <input type="radio" id="male" name="gender" value="male" class="form-radio text-gray-700" />
-                                                        <span class="ml-2">Male</span>
+                                                        <input type="radio" id="male" name="gender" value="male" class="form-radio text-gray-700" /><span class="ml-2">Male</span>
                                                     </label>
                                                     <label class="inline-flex items-center">
-                                                        <input type="radio" id="female" name="gender" value="female" class="form-radio text-gray-700" />
-                                                        <span class="ml-2">Female</span>
+                                                        <input type="radio" id="female" name="gender" value="female" class="form-radio text-gray-700" /><span class="ml-2"
+                                                            >Female</span
+                                                        >
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="text-center mt-6">
                                                 <button
-                                                    class="bg-black text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full hover:bg-pink-500"
+                                                    class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
                                                     type="button"
+                                                    style="transition: all 0.15s ease 0s"
                                                     onclick="startJourney()"
-                                                    style="transition: all 0.15s ease 0s; border: 2px solid white; border-radius: 9999px"
                                                 >
-                                                    Your journey starts here
+                                                    Start Your Journey
                                                 </button>
                                             </div>
                                         </form>
-                                        <div class="w-full text-center mt-4">
-                                            <a href="index.html" class="text-black-300">
-                                                <small>Already have an account? Sign in here</small>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +197,51 @@
         <script>
             function startJourney() {
                 // Add your logic for starting the journey here
-                alert("Your journey is about to start!")
+                //Get values from input fields
+                const userEmail = document.getElementById("userEmail").value
+                const userPassword = document.getElementById("userPassword").value
+                const bd = document.getElementById("birthdate").value
+                const fullname = document.getElementById("username").value
+                const weight = document.getElementById("weight").value
+                const countryCode = document.getElementById("countryCode").value
+                const phoneNumber = document.getElementById("phoneNumber").value
+                const goal = document.getElementById("goal").value
+                const gendercheck = document.getElementById("male").checked
+                const fullPhone = countryCode + "-" + phoneNumber
+                let gender
+                if (gendercheck) {
+                    gender = "male"
+                } else {
+                    gender = "female"
+                }
+
+                fetch("http://localhost:5000/registeruser", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: userEmail,
+                        userPassword: userPassword,
+                        birthdate: bd,
+                        fullname: fullname,
+                        weight: weight,
+                        goal: goal,
+                        gendervalue: gender,
+                        fullPhone: fullPhone,
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data?.status == "success") {
+                            alert(data?.message)
+                        } else {
+                            alert(data?.message) // should return from api the message that says saved succesffuly
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error)
+                    })
             }
 
             document.getElementById("weight").addEventListener("keydown", function (event) {

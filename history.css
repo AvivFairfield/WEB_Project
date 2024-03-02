@@ -41,7 +41,43 @@ html, body {
         max-width: 30%;
     }
 }
-
+.recipe-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+.recipe-card {
+    width: calc(33.333% - 20px);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.recipe-card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.recipe-card .content {
+    padding: 15px;
+}
+.hidden {
+    display: none;
+}
+@media (max-width: 768px) {
+    .recipe-card {
+        width: calc(50% - 20px);
+    }
+}
+@media (max-width: 480px) {
+    .recipe-card {
+        width: 100%;
+    }
+}
 
 
 /* Additional styles for sidebar */
