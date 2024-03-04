@@ -151,12 +151,7 @@
             <button class="save-button" onclick="saveWorkoutDetails()">Save</button>
             <button class="challenge-button" onclick="inviteFriend()">Invite a Friend to your challenge</button>
 
-            
-
-           
-
             <script>
-               
                 function inviteFriend() {
                     const trainingType = document.getElementById("trainingType").value
                     const location = document.getElementById("location").value
@@ -201,8 +196,6 @@
                     const duration = document.getElementById("duration").value //Assuming there's only one number input for minutes
                     const workoutDateAndTime = formatDate(new Date(document.getElementById("datetimeInput").value))
                     // const workoutDateAndTime = new Date(document.getElementById("datetimeInput").value).getTime()
-
-                    console.log(trainingType, location, duration, workoutDateAndTime, "AYAYAYAYAYAYAYAYAYAY")
 
                     //check if the trainingType or location is not selected
                     if (trainingType === "Choose a training" || location === "Gym or home?" || !duration || !workoutDateAndTime) {
