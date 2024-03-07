@@ -599,7 +599,7 @@ html, body {
 
 .close-btn {
     position: absolute;
-    top: 5%;
+    top: 1%;
     right: 20px;
     cursor: pointer;
     color: #fff;
