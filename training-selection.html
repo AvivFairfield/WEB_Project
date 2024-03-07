@@ -152,20 +152,35 @@
             <button class="challenge-button" onclick="inviteFriend()">Invite a Friend to your challenge</button>
 
             <script>
+                function formatDateTime(dateTimeStr) {
+                    const months = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+                    const date = new Date(dateTimeStr);
+                    const day = date.getDate();
+                    const month = months[date.getMonth()];
+                    const year = date.getFullYear();
+                    let hours = date.getHours();
+                    const minutes = date.getMinutes();
+                    const ampm = hours >= 12 ? 'PM' : 'AM';
+                    hours = hours % 12;
+                    hours = hours ? hours : 12; // the hour '0' should be '12'
+                    const minutesStr = minutes < 10 ? '0'+minutes : minutes;
+                    return `${month} ${day}, ${year} at ${hours}:${minutesStr} ${ampm}`;
+} 
                 function inviteFriend() {
                     const trainingType = document.getElementById("trainingType").value
                     const location = document.getElementById("location").value
-                    const workoutDate = document.getElementById("workoutDate").value
-                    const time = document.getElementById("appt").value
+                    const workoutDateTime  = document.getElementById("datetimeInput").value
 
                     //Check if the trainingType or location is not selected
-                    if (trainingType === "Choose a training" || location === "Gym or home?" || !workoutDate || !time) {
+                    if (trainingType === "Choose a training" || location === "Gym or home?" ||!workoutDateTime) {
                         alert("Please fill in all fields before inviting a friend.")
                         return //Stop execution if any field is empty or default
                     }
 
+                    const formattedDateTime = formatDateTime(workoutDateTime);
                     //create the message
-                    const message = `Hey! I'm doing a ${trainingType} workout at the ${location} on ${workoutDate} around ${time}. Wanna join me to my challenge? `
+                    const message = `Hey! I'm doing a ${trainingType} workout at the ${location} on ${formattedDateTime}. Wanna join me to my challenge? `
 
                     //Encode the message for a URL
                     const encodedMessage = encodeURIComponent(message)
