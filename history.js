@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Function to format date and time
+
     fetch("http://localhost:5000/getuserhistory", {
         method: "POST",
         headers: {
@@ -10,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
     })
         .then((response) => response.json())
         .then((data) => {
+            const formatDateTime = (date) => {
+                const formattedTime = `${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`
+                const formattedDate = `${date.getDate().toString().padStart(2, "0")}/${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getFullYear()}`
+                return `${formattedDate} ${formattedTime}`
+            }
             // console.log("Success:", data)
             if (data?.status == "success") {
                 console.log(data?.workouts)
@@ -79,28 +86,19 @@ function showPage(page) {
 
 pageButtons.forEach((button) => {
     button.addEventListener("click", function () {
-        currentPage = parseInt(this.getAttribute("data-page"));
-        showPage(currentPage);
-    });
-});
+        currentPage = parseInt(this.getAttribute("data-page"))
+        showPage(currentPage)
+    })
+})
 
 moreButton.addEventListener("click", function () {
-    currentPage++;
+    currentPage++
     if (currentPage > pageButtons.length) {
-        currentPage = 1; // Wrap around to the first page
+        currentPage = 1 // Wrap around to the first page
     }
-    showPage(currentPage);
-});
+    showPage(currentPage)
+})
 
-showPage(currentPage); // Initialize the first page
-
-
-// Function to format date and time
-const formatDateTime = (date) => {
-    const formattedTime = `${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
-    const formattedDate = `${date.getDate().toString().padStart(2, "0")}/${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getFullYear()}`;
-    return `${formattedDate} ${formattedTime}`;
-};
-
+showPage(currentPage) // Initialize the first page
 
 showPage(currentPage) // Initialize the first page

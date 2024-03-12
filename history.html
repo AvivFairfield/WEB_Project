@@ -1,87 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout History</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="history.css">
-</head>
-<body>
-    <div class="absolute top-0 w-full h-full bg-black" style="background-image: url(https://i.ibb.co/Rc3rZQF/most-colors-modified-image.png); background-size: 100%; background-repeat: no-repeat">
-        <div class="bg-white">
-            <header class="absolute inset-x-0 top-0 z-50">
-                <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                    <div class="flex lg:flex-1">
-                        <!-- Center the logo -->
-                        <div class="logo-container">
-                            <a href="#" class="-m-1.5 p-1.5">
-                                <span class="sr-only">SweatSquad</span>
-                                <img class="logo" src="white_logo.png" alt="Your Alt Text">
-                            </a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Workout History</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="history.css" />
+    </head>
+    <body>
+        <div
+            class="absolute top-0 w-full h-full bg-black"
+            style="background-image: url(https://i.ibb.co/Rc3rZQF/most-colors-modified-image.png); background-size: 100%; background-repeat: no-repeat"
+        >
+            <div class="bg-white">
+                <header class="absolute inset-x-0 top-0 z-50">
+                    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+                        <div class="flex lg:flex-1">
+                            <!-- Center the logo -->
+                            <div class="logo-container">
+                                <a href="#" class="-m-1.5 p-1.5">
+                                    <span class="sr-only">SweatSquad</span>
+                                    <img class="logo" src="white_logo.png" alt="Your Alt Text" />
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </nav>
-            </header>
-        </div>
-        <!-- Sidebar -->
-        <div class="sidebar" style="left: -220px;"> <!-- Initially hidden -->
-            <button class="toggle-sidebar" id="openSidebarBtn" style="position: fixed; z-index: 40; left: 20px; top: 20px; cursor: pointer; background-color: rgba(255, 255, 255, 0.3); color: #fff; border: none; padding: 0px 5px; font-size: 20px;">
-                <i class="fas fa-bars"></i>
-            </button>
-            <span class="close-btn" id="closeBtn">&times;</span>
-            <ul>
-                <li>
-                    <a href="mainMenu.html"><i class="fas fa-utensils"></i> Main menu</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-utensils"></i> Recommended recipes</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-users"></i> Friends list</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-medal"></i> Leadbord</a>
-                </li>
-                <li>
-                    <a href="progression.html"><i class="fas fa-bars"></i> Progression</a>
-                </li>
-                <li>
-                    <a href="account_settings.html"><i class="fas fa-cog"></i> Account Settings</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-question-circle"></i> About</a>
-                </li>
-                <li style="margin-top: 280px">
-                    <a href="index.html" style="color: #fff; text-decoration: none; display: block; padding: 0px"> <i class="fas fa-sign-out-alt"></i> Sign out </a>
-                </li>
-            </ul>
-        </div>
-        <!-- Main Content -->
-        <div class="flex-1 mt-24">
-            <div class="history-view p-8 text-white">
-                <h1 class="text-3xl font-bold mb-6">Workout History</h1>
-                <div id="workout-container">
-                    <div class="overflow-x-auto relative">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" class="py-3 px-6">Workout</th>
-                                    <th scope="col" class="py-3 px-6">location</th>
-                                    <th scope="col" class="py-3 px-6">Duration</th>
-                                    <th scope="col" class="py-3 px-6">Date</th>
-                                </tr>
-                            </thead>
-                            <tbody id="historyWorkouts">
-                                <!-- Repeat for more rows -->
-                            </tbody>
-                        </table>
+                    </nav>
+                </header>
+            </div>
+            <!-- Sidebar -->
+            <div class="sidebar" style="left: -220px">
+                <!-- Initially hidden -->
+                <button
+                    class="toggle-sidebar"
+                    id="openSidebarBtn"
+                    style="
+                        position: fixed;
+                        z-index: 40;
+                        left: 20px;
+                        top: 20px;
+                        cursor: pointer;
+                        background-color: rgba(255, 255, 255, 0.3);
+                        color: #fff;
+                        border: none;
+                        padding: 0px 5px;
+                        font-size: 20px;
+                    "
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <ul>
+                    <li>
+                        <a href="mainMenu.html"><i class="fas fa-utensils"></i> Main menu</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-utensils"></i> Recommended recipes</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-users"></i> Friends list</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-medal"></i> Leadbord</a>
+                    </li>
+                    <li>
+                        <a href="progression.html"><i class="fas fa-bars"></i> Progression</a>
+                    </li>
+                    <li>
+                        <a href="account_settings.html"><i class="fas fa-cog"></i> Account Settings</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-question-circle"></i> About</a>
+                    </li>
+                    <li style="margin-top: 280px">
+                        <a href="index.html" style="color: #fff; text-decoration: none; display: block; padding: 0px"> <i class="fas fa-sign-out-alt"></i> Sign out </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Main Content -->
+            <div class="flex-1 mt-24">
+                <div class="history-view p-8 text-white">
+                    <h1 class="text-3xl font-bold mb-6">Workout History</h1>
+                    <div id="workout-container">
+                        <div class="overflow-x-auto relative">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">Workout</th>
+                                        <th scope="col" class="py-3 px-6">location</th>
+                                        <th scope="col" class="py-3 px-6">Duration</th>
+                                        <th scope="col" class="py-3 px-6">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyWorkouts">
+                                    <!-- Repeat for more rows -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="history.js"></script>
-</body>
+        <script src="history.js"></script>
+    </body>
 </html>
