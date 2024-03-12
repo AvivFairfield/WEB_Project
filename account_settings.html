@@ -5,12 +5,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Account Settings</title>
         <link rel="stylesheet" href="account_setting.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     </head>
-    <body
-        class="bg-black text-white"
-        style="background-image: url(&quot;most_colors_modified_image.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center"
+    <div
+    class="absolute top-0 w-full h-full bg-black"
+    style="background-image: url(https://i.ibb.co/Rc3rZQF/most-colors-modified-image.png); background-size: 100%; background-repeat: no-repeat"
+>
+dy class="bg-black">
+<div
+class="absolute top-0 w-full h-full bg-black"
+style="background-image: url(https://i.ibb.co/Rc3rZQF/most-colors-modified-image.png); background-size: 100%; background-repeat: no-repeat"
+>
+<div class="sidebar1">
+    <button
+        class="toggle-sidebar"
+        id="openSidebarBtn"
+        style="
+            position: fixed;
+            z-index: 50;
+            left: 20px;
+            top: 20px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            border: none;
+            padding: 0px 5px;
+            font-size: 20px;
+        "
     >
+        <i class="fas fa-bars"></i>
+    </button>
+    <span class="close-btn1" id="closeBtn">&times;</span>
+    <ul>
+        <li>
+            <a href="#"><i class="fas fa-utensils"></i> Recommended recipes</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-users"></i> Friends list</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-medal"></i> Leadbord</a>
+        </li>
+        <li>
+            <a href="progression.html"><i class="fas fa-bars"></i> Progression</a>
+        </li>
+        <li>
+            <a href="account_settings.html"><i class="fas fa-cog"></i> Account Settings</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-question-circle"></i> About</a>
+        </li>
+        <li style="margin-top: 280px">
+            <a href="index.html" style="color: #fff; text-decoration: none; display: block; padding: 0px"> <i class="fas fa-sign-out-alt"></i> Sign out </a>
+        </li>
+    </ul>
+</div>
         <div class="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-6">
                 <img src="white_logo.png" alt="Logo" class="h-8" />
@@ -22,6 +72,7 @@
                     Home
                 </button>
             </div>
+            
             <div class="bg-white text-gray-900 p-6 rounded-lg shadow-md">
                 <h2 class="text-lg font-semibold mb-4">General Information</h2>
                 <div class="space-y-4">

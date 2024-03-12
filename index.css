@@ -1,0 +1,12 @@
+.logo-container {
+    text-align: center;
+    padding: 40px 10px; /* Added 'px' to the padding value */
+}
+.logo-img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block; /* Added to center horizontally */
+    margin-left: auto; /* Added to center horizontally */
+    margin-right: auto; /* Added to center horizontally */
+}

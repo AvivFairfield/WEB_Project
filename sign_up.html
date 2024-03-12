@@ -7,73 +7,9 @@
         <link rel="shortcut icon" href="./assets/img/favicon.ico" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css" />
+        <link rel="stylesheet" href="sign_up.css">
         <title>Sign Up</title>
-        <style>
-            body,
-            html {
-                font-family: sans-serif;
-                margin: 0;
-                padding: 0;
-                height: 100%;
-            }
-
-            .logo-container {
-                top: -7%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 30%;
-                position: relative;
-                z-index: 1;
-            }
-
-            .logo-img {
-                max-width: 50%;
-                max-height: 50%;
-                width: auto;
-                height: auto;
-            }
-
-            .sign-in-container {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 90%;
-                max-width: 800px;
-                padding: 20px; /* Reduced padding */
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                background-color: rgba(255, 255, 255, 0.9);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .flex-container {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-            }
-
-            .column {
-                flex: 1;
-                padding: 0 15px;
-            }
-
-            @media (max-width: 768px) {
-                .flex-container {
-                    flex-direction: column;
-                }
-                .column {
-                    width: 100%;
-                    padding: 0;
-                }
-                .sign-in-container {
-                    max-width: 90%;
-                }
-            }
-        </style>
+        
     </head>
     <body class="text-gray-800 antialiased">
         <main>
@@ -194,67 +130,6 @@
                 </div>
             </section>
         </main>
-        <script>
-            function startJourney() {
-                // Add your logic for starting the journey here
-                //Get values from input fields
-                const userEmail = document.getElementById("userEmail").value
-                const userPassword = document.getElementById("userPassword").value
-                const bd = document.getElementById("birthdate").value
-                const fullname = document.getElementById("username").value
-                const weight = document.getElementById("weight").value
-                const countryCode = document.getElementById("countryCode").value
-                const phoneNumber = document.getElementById("phoneNumber").value
-                const goal = document.getElementById("goal").value
-                const gendercheck = document.getElementById("male").checked
-                const fullPhone = countryCode + "-" + phoneNumber
-                let gender
-                if (gendercheck) {
-                    gender = "male"
-                } else {
-                    gender = "female"
-                }
-
-                fetch("http://localhost:5000/registeruser", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        email: userEmail,
-                        userPassword: userPassword,
-                        birthdate: bd,
-                        fullname: fullname,
-                        weight: weight,
-                        goal: goal,
-                        gendervalue: gender,
-                        fullPhone: fullPhone,
-                    }),
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data?.status == "success") {
-                            alert(data?.message)
-                        } else {
-                            alert(data?.message) // should return from api the message that says saved succesffuly
-                        }
-                    })
-                    .catch((error) => {
-                        console.error("Error:", error)
-                    })
-            }
-
-            document.getElementById("weight").addEventListener("keydown", function (event) {
-                if (event.keyCode === 38) {
-                    // Up arrow key
-                    event.preventDefault()
-                    this.stepUp()
-                } else if (event.keyCode === 40) {
-                    // Down arrow key
-                    event.preventDefault()
-                    this.stepDown()
-                }
-            })
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>
